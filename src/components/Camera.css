@@ -1,0 +1,9 @@
+.userCamStream{
+    width:auto;
+    height:5em;
+    clip-path: circle(2.5em at center);
+    position: absolute;
+    display:block;
+    margin-left:-31px;
+    margin-right:auto;
+}

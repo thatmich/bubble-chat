@@ -1,0 +1,18 @@
+.UserCircle, .OtherUser{
+    border:0.25em solid whitesmoke;
+    border-radius: 50%;
+    width:5em;
+    height:5em;
+    position:absolute;
+}
+
+.UserCircle{
+    border:0.25em solid #77EE7B;
+}
+
+.userPicture{
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    position:absolute;
+}

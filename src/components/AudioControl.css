@@ -1,0 +1,34 @@
+.AudioControlBar{
+    position: absolute;
+    bottom:0;
+    left: 3em;
+}
+.buttons_bar {
+    list-style-type: none;
+    padding:0;
+}
+.audio_control_item{
+    display:inline;
+    padding-right: 2em;
+}
+
+.buttonImg{
+    max-width: 3em;
+    height:auto;
+}
+
+.controlBtn{
+    height:4.5em;
+    width:4.5em;
+    border-radius: 45%;
+    box-shadow: none;
+    background-color: #b8c4e6;
+}
+
+.controlBtn:hover {background-color: #c8cfe3;}
+
+.controlBtn:active {
+    background-color: #7687b8;
+    box-shadow: 0 5px #666;
+    transform: translateY(1px);
+  }

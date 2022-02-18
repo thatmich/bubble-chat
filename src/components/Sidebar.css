@@ -1,0 +1,38 @@
+
+body{
+    margin:0;
+    padding:0;
+    background-color: #22233C;
+  }
+  
+  .account-info {
+    list-style-type: none;
+    padding:0;
+  }
+  
+  .sidebar-nav{
+    background-color: rgb(249, 250, 251) ;
+    position: absolute;
+    right:0px;
+    width:20em;
+    height:100vh;
+    display:grid;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    color:black;
+  }
+  
+  nav h4{
+    text-align:left;
+    padding-left: 10%;
+    font-weight: normal;
+  }
+  
+.centeredDetails{
+  text-align: center;
+}
+
+  .other-users{
+    cursor:pointer;
+    visibility: hidden;
+  }
+  
