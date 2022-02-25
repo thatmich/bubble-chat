@@ -2,8 +2,8 @@
     width:auto;
     height:5em;
     clip-path: circle(2.5em at center);
-    position: absolute;
+    position: relative;
     display:block;
-    margin-left:-31px;
+    margin-left:-13px;
     margin-right:auto;
 }

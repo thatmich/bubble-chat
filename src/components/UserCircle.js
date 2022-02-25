@@ -8,20 +8,19 @@ import StoreContext from '../contexts/StoreContext';
 //const defaultPic = "https://media.istockphoto.com/photos/kitten-at-home-garden-wall-picture-id1273661469?b=1&k=20&m=1273661469&s=170667a&w=0&h=K-b-88J89oSBIwbD0WhhDoOvybcbjfePJoOHS0grHHA=";
 
 function UserCircle(props) {
-    const { userInfo } = useContext(StoreContext);
-    const { imageUrl, name } = userInfo;
-    const [userPosition, setPosition] = useState({
-        x: props.x,
-        y: props.y,
-    });
+    const { userInfo, setUserInfo} = useContext(StoreContext);
+    const { imageUrl, name} = userInfo;
+    const { group, setGroup } = useState(null);
 
     const move = (newX, newY) => {
-        setPosition({ x: newX, y: newY });
+        if(group == null){
+            setUserInfo({ ...userInfo, x: newX, y: newY });
+        }
         // console.log('' + userPosition.x + ' ' + userPosition.y)
     }
 
     return (
-        <Draggable x={userPosition.x} y={userPosition.y} onMove={move}>
+        <Draggable x={userInfo.x} y={userInfo.y} onMove={move}>
             <div className="UserCircle">
                 <img
                     className="userPicture"
@@ -33,6 +32,5 @@ function UserCircle(props) {
         </Draggable>
     );
 }
-
 
 export default UserCircle;

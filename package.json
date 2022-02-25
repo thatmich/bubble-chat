@@ -10,6 +10,8 @@
     "react-dom": "^17.0.2",
     "react-google-login": "^5.2.2",
     "react-scripts": "^3.0.1",
+    "react-webcam": "^6.0.1",
+    "socket.io-client": "^4.4.1",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
@@ -35,5 +37,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/thatmich/bubble-chat.git",
+  "author": "thatmich <47138011+thatmich@users.noreply.github.com>",
+  "license": "MIT"
 }

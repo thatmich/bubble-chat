@@ -12,7 +12,7 @@ function Sidebar() {
   const [imgURL, setURL] = useState(defaultPic);
   const [name, setName] = useState("");
   const [isIn, setLogin] = useState(false);
-  const { setUserInfo } = useContext(StoreContext);
+  const { userInfo, setUserInfo } = useContext(StoreContext);
   const loginVisibility = () => {
     const loginElements = document.getElementById("Logins");
     const logoutElements = document.getElementById("Logouts");
@@ -44,7 +44,7 @@ function Sidebar() {
     setURL('' + res.profileObj.imageUrl);
     setName('' + res.profileObj.givenName + ' (You)');
     setLogin(true);
-    setUserInfo({ name: res.profileObj.name, imageUrl: res.profileObj.imageUrl });
+    setUserInfo({...userInfo, name: res.profileObj.name, imageUrl: res.profileObj.imageUrl });
   }
 
   const onFailure = (res) => {
