@@ -9,7 +9,7 @@ TODO:
 */
 
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import socketClient from "socket.io-client";
 import './App.css';
 import Sidebar from './components/Sidebar.js'
@@ -18,6 +18,7 @@ import OtherUser from './components/OtherUser'
 import AudioControl from './components/AudioControl';
 import StoreProvider from './components/StoreProvider';
 import StoreContext from './contexts/StoreContext';
+import { getNodeText } from '@testing-library/react';
 
 var socket = socketClient('http://localhost:5000');
 //var locations = [...Array(2)].map(e => Array(2));
@@ -83,31 +84,75 @@ var socket = socketClient('http://localhost:5000');
 function App() {
   const [userList, setUserList] = useState([]);
   const [thisUser, setThisUser] = useState({});
+  const [userDivs, setUserDivs] = useState([]);
 
   useEffect(() => {
     socket.on('connection', (arg) => {
       setThisUser(arg.newUser);
       setUserList(arg.users);
-    });
+    })
   }, []);
 
-  console.log(userList);
-  console.log(thisUser);
+  useEffect(() => {
+    socket.once('update', (arg) => {
+      setUserList(arg);
+      let tempUserDiv = [];
+      for (const user of userList) {
+        //console.log(user);
+        if (user.id !== thisUser.id) {
+          //console.log(user.x);
+          tempUserDiv.push(
+            
+            <OtherUser userData={{
+              id: user.id,
+              name: user.name,
+              imageUrl: user.img,
+              xCoord: user.x,
+              yCoord: user.y
+            }}
+              key={user.x, user.y}
+            />
+
+          )
+        }
+      }
+      setUserDivs(tempUserDiv);
+    }
+    )
+  }
+  )
+
+
+
+  function getUserPos(number) {
+    if (userList[number] !== undefined) {
+      return (
+
+        <p className="temp" style={{ color: "white" }}>
+          {"" + userList[number].x + " " + userList[number].y}
+        </p>
+
+      )
+    }
+  }
+
   return (
-    <StoreProvider>
-      <div className='App'>
-        <div className='space'>
-          {userList.map(function (user, i) {
-            if (user.id !== thisUser.id) {
-              return <OtherUser userData={{ name: user.name, imageUrl: user.img, xCoord: user.x, yCoord: user.y }} key={user.id} />
-            }
-          })}
-          <UserCircle info={thisUser}/>
+    <div>
+      <StoreProvider>
+        <div className='App'>
+          <div className='space'>
+            {userDivs}
+            <UserCircle info={thisUser} socket={socket} />
+          </div>
+          {/* <Sidebar /> */}
+          <AudioControl />
         </div>
-        {/* <Sidebar /> */}
-        <AudioControl />
-      </div>
-    </StoreProvider>
+      </StoreProvider>
+      {getUserPos(0)}
+      {getUserPos(1)}
+    </div>
+
+
   );
 }
 

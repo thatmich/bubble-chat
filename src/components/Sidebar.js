@@ -9,8 +9,10 @@ import StoreContext from '../contexts/StoreContext';
 const clientId = "1080853232694-vd21gc7ivuedf7o1328ijnj5s4fbq686.apps.googleusercontent.com";
 const defaultPic = "https://media.istockphoto.com/photos/kitten-at-home-garden-wall-picture-id1273661469?b=1&k=20&m=1273661469&s=170667a&w=0&h=K-b-88J89oSBIwbD0WhhDoOvybcbjfePJoOHS0grHHA=";
 function Sidebar() {
+  // eslint-disable-next-line
   const [imgURL, setURL] = useState(defaultPic);
   const [name, setName] = useState("");
+  // eslint-disable-next-line
   const [isIn, setLogin] = useState(false);
   const { userInfo, setUserInfo } = useContext(StoreContext);
   const loginVisibility = () => {

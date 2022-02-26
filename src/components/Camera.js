@@ -1,4 +1,5 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
+// import {useEffect} from 'react'
 import Webcam from 'react-webcam';
 import StoreContext from '../contexts/StoreContext';
 import './Camera.css';
@@ -37,10 +38,8 @@ import './Camera.css';
 
 function Camera() {
   const { av_settings } = useContext(StoreContext);
+  // eslint-disable-next-line
   const { isCameraOn, isMicOn, isBroadcasting } = av_settings;
-  const videoConstraints = {
-
-  }
   return (
     <div>
       {isCameraOn ? (<div id="camera-container">

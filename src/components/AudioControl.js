@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react';
 import './AudioControl.css';
-import Camera from './Camera.js';
 import microphoneLogo from '../images/microphone.png';
 import muteLogo from '../images/mutemicrophone.png';
 import videoLogo from '../images/video-camera.png';
 import noVideoLogo from '../images/no-video.png';
-import broadcastLogo from '../images/broadcast.png';
+//import broadcastLogo from '../images/broadcast.png';
 import StoreContext from '../contexts/StoreContext';
 
 
@@ -46,12 +45,12 @@ function AudioControl() {
         <ul className='buttons_bar'>
           <li className='audio_control_item'>
             <button className="controlBtn" id="micButton" onClick={handleAudio}>
-              <img className="buttonImg" src={audioLogoLocation}></img>
+              <img className="buttonImg" src={audioLogoLocation} alt="Enable/Disable Audio"></img>
             </button>
           </li>
           <li className='audio_control_item'>
             <button className="controlBtn" id="videoButton" onClick={handleCamera}>
-              <img className="buttonImg" src={videoLogoLocation}></img>
+              <img className="buttonImg" src={videoLogoLocation} alt="Enable/Disable Video"></img>
             </button>
           </li>
           {/* <li className='audio_control_item'>

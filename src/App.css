@@ -6,3 +6,9 @@
   height: 40vmin;
   pointer-events: none;
 }
+
+body{
+  margin:0;
+  padding:0;
+  background-color: #22233C;
+}

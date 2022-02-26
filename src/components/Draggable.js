@@ -1,4 +1,5 @@
-import React, { useState, createRef} from 'react';
+import React from 'react';
+// import { useState, createRef} from 'react';
 
 import './Draggable.css'
 //https://stackoverflow.com/questions/20926551/recommended-way-of-making-react-component-div-draggable?answertab=votes#tab-top
@@ -45,6 +46,7 @@ class Draggable extends React.PureComponent {
         document.removeEventListener('mousemove', this._onMouseMove);
         document.removeEventListener('mouseup', this._onMouseUp);
         event.preventDefault();
+        this.props.onRelease();
     };
     
     _onMouseMove = (event) => {

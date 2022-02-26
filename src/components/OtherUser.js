@@ -14,7 +14,7 @@ function OtherUser(props) {
             y: props.userData.yCoord,
         }
     );
-    const { userInfo, setUserInfo} = useContext(StoreContext);
+    const { userInfo } = useContext(StoreContext);
     
     // temp
     const [videoOn, setVideo] = useState(false);
@@ -87,6 +87,7 @@ function OtherUser(props) {
                     </button>
                 </div>
             ) : (<div />)}
+            
 
             
             
